@@ -1,0 +1,107 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: var(--text-button-weight);
+  font-size: var(--text-body-size);
+  line-height: 1.25;
+  transition: background var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ─── Sizes ─── */
+.btn--sm {
+  padding: 6px 12px;
+  font-size: var(--text-caption-size);
+}
+.btn--md {
+  padding: 10px 12px;
+}
+.btn--lg {
+  padding: 14px 20px;
+  font-size: var(--text-nav-size);
+}
+
+/* ─── Primary Black ─── */
+.btn--primary {
+  background: var(--uber-black);
+  color: var(--pure-white);
+}
+.btn--primary:hover:not(:disabled) {
+  background: #333;
+}
+.btn--primary:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+.btn--primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* ─── Secondary White ─── */
+.btn--secondary {
+  background: var(--pure-white);
+  color: var(--uber-black);
+  border: 1px solid var(--uber-black);
+}
+.btn--secondary:hover:not(:disabled) {
+  background: var(--hover-gray);
+}
+.btn--secondary:active:not(:disabled) {
+  background: var(--chip-gray);
+}
+
+/* ─── Chip / Filter ─── */
+.btn--chip {
+  background: var(--chip-gray);
+  color: var(--uber-black);
+  padding: 8px 16px;
+  font-size: var(--text-caption-size);
+  font-weight: 500;
+}
+.btn--chip:hover:not(:disabled) {
+  background: var(--hover-gray);
+}
+.btn--chip:active:not(:disabled) {
+  box-shadow: var(--shadow-pressed);
+}
+.btn--chip.active {
+  background: var(--uber-black);
+  color: var(--pure-white);
+}
+
+/* ─── Floating ─── */
+.btn--floating {
+  background: var(--pure-white);
+  color: var(--uber-black);
+  padding: 14px;
+  box-shadow: var(--shadow-floating);
+  transform: translateY(2px);
+}
+.btn--floating:hover:not(:disabled) {
+  background: var(--hover-light);
+}
+
+/* ─── Danger ─── */
+.btn--danger {
+  background: var(--status-error);
+  color: var(--pure-white);
+}
+.btn--danger:hover:not(:disabled) {
+  background: #b71c1c;
+}
+
+/* ─── Full Width ─── */
+.btn--full {
+  width: 100%;
+}

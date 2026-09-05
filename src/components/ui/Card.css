@@ -1,0 +1,20 @@
+.card {
+  background: var(--pure-white);
+  border-radius: var(--radius-standard);
+  box-shadow: var(--shadow-light);
+  overflow: hidden;
+}
+
+.card--featured {
+  border-radius: var(--radius-comfortable);
+}
+
+.card--hoverable {
+  cursor: pointer;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.card--hoverable:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}

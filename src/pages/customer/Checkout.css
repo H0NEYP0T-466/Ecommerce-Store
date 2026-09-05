@@ -1,0 +1,43 @@
+.checkout-page { padding: var(--space-5xl) 0; }
+.checkout-page h1 { margin-bottom: var(--space-5xl); }
+.checkout-layout { display: grid; grid-template-columns: 1fr 400px; gap: var(--space-5xl); align-items: start; }
+.checkout-form { display: flex; flex-direction: column; gap: var(--space-4xl); }
+.checkout-section {
+  display: flex; flex-direction: column; gap: var(--space-xl);
+  padding-bottom: var(--space-4xl); border-bottom: 1px solid var(--chip-gray);
+}
+.checkout-section h4 { font-size: var(--text-small-heading-size); }
+.checkout-note { font-size: var(--text-caption-size); color: var(--body-gray); }
+
+/* Bank accounts */
+.bank-accounts-list { display: flex; flex-direction: column; gap: var(--space-base); }
+.bank-option {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 16px; border: 1px solid var(--chip-gray); border-radius: var(--radius-standard);
+  cursor: pointer; transition: border-color var(--transition-fast);
+}
+.bank-option:hover, .bank-option.selected { border-color: var(--uber-black); }
+.bank-option input[type="radio"] { margin-top: 4px; accent-color: var(--uber-black); }
+.bank-info { display: flex; flex-direction: column; gap: 2px; font-size: var(--text-caption-size); }
+.bank-info strong { font-size: var(--text-body-size); }
+.bank-iban { font-family: monospace; font-size: var(--text-micro-size); color: var(--body-gray); }
+
+/* Summary */
+.checkout-summary {
+  position: sticky; top: 80px; padding: var(--space-4xl);
+  background: var(--hover-light); border-radius: var(--radius-comfortable);
+}
+.checkout-summary h4 { margin-bottom: var(--space-xl); }
+.checkout-items { display: flex; flex-direction: column; gap: var(--space-base); margin-bottom: var(--space-xl); }
+.checkout-item { display: flex; align-items: center; gap: 12px; }
+.checkout-item-img { width: 56px; height: 56px; border-radius: var(--radius-standard); object-fit: cover; }
+.checkout-item-info { flex: 1; }
+.checkout-item-name { font-size: var(--text-caption-size); font-weight: 500; }
+.checkout-item-variant { font-size: var(--text-micro-size); color: var(--muted-gray); }
+.checkout-item-price { font-size: var(--text-caption-size); font-weight: 700; }
+.checkout-totals { margin-bottom: var(--space-4xl); }
+.checkout-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: var(--text-caption-size); }
+.checkout-divider { border-top: 1px solid var(--uber-black); margin: var(--space-base) 0; }
+.checkout-grand { font-weight: 700; font-size: var(--text-body-size); }
+
+@media (max-width: 768px) { .checkout-layout { grid-template-columns: 1fr; } }

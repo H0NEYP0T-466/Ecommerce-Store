@@ -1,0 +1,3 @@
+.star-rating { display: inline-flex; align-items: center; gap: 2px; }
+.star--interactive { cursor: pointer; transition: transform var(--transition-fast); }
+.star--interactive:hover { transform: scale(1.2); }

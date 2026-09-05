@@ -1,0 +1,10 @@
+.skeleton {
+  background: linear-gradient(90deg, var(--chip-gray) 25%, var(--hover-gray) 50%, var(--chip-gray) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+.skeleton-card {
+  background: var(--pure-white); border-radius: var(--radius-standard);
+  box-shadow: var(--shadow-light); overflow: hidden;
+}
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }

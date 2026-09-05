@@ -1,0 +1,144 @@
+/*
+ * Uber Design System — CSS Custom Properties
+ * Based on DESIGN.md specifications
+ * No gradients. Pure black/white foundation.
+ */
+
+:root {
+  /* ═══════════════════════════════════════════
+     COLORS
+     ═══════════════════════════════════════════ */
+  
+  /* Primary */
+  --uber-black: #000000;
+  --pure-white: #ffffff;
+  
+  /* Interactive & Button States */
+  --hover-gray: #e2e2e2;
+  --hover-light: #f3f3f3;
+  --chip-gray: #efefef;
+  
+  /* Text & Content */
+  --body-gray: #4b4b4b;
+  --muted-gray: #afafaf;
+  
+  /* Borders */
+  --border-black: #000000;
+  
+  /* Links */
+  --link-blue: #0000ee;
+  --link-white: #ffffff;
+  --link-black: #000000;
+
+  /* Status Colors (minimal — used sparingly for badges) */
+  --status-success: #0d7c3d;
+  --status-warning: #b25e00;
+  --status-error: #d32f2f;
+  --status-info: #1565c0;
+  --status-success-bg: #e8f5e9;
+  --status-warning-bg: #fff3e0;
+  --status-error-bg: #ffebee;
+  --status-info-bg: #e3f2fd;
+
+  /* ═══════════════════════════════════════════
+     SHADOWS & DEPTH
+     ═══════════════════════════════════════════ */
+  --shadow-light: rgba(0, 0, 0, 0.12) 0px 4px 16px 0px;
+  --shadow-medium: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
+  --shadow-floating: rgba(0, 0, 0, 0.16) 0px 2px 8px 0px;
+  --shadow-pressed: inset 0 0 0 999px rgba(0, 0, 0, 0.08);
+  --focus-ring: inset 0 0 0 2px rgb(255, 255, 255);
+
+  /* ═══════════════════════════════════════════
+     TYPOGRAPHY
+     Inter as UberMove/UberMoveText substitute
+     ═══════════════════════════════════════════ */
+  --font-headline: 'Inter', system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body: 'Inter', system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* Display / Hero */
+  --text-display-size: 3.25rem;        /* 52px */
+  --text-display-weight: 700;
+  --text-display-lh: 1.23;
+
+  /* Section Heading */
+  --text-section-size: 2.25rem;        /* 36px */
+  --text-section-weight: 700;
+  --text-section-lh: 1.22;
+
+  /* Card Title */
+  --text-card-size: 2rem;              /* 32px */
+  --text-card-weight: 700;
+  --text-card-lh: 1.25;
+
+  /* Sub-heading */
+  --text-subheading-size: 1.5rem;      /* 24px */
+  --text-subheading-weight: 700;
+  --text-subheading-lh: 1.33;
+
+  /* Small Heading */
+  --text-small-heading-size: 1.25rem;  /* 20px */
+  --text-small-heading-weight: 700;
+  --text-small-heading-lh: 1.40;
+
+  /* Nav / UI Large */
+  --text-nav-size: 1.125rem;           /* 18px */
+  --text-nav-weight: 500;
+  --text-nav-lh: 1.33;
+
+  /* Body / Button */
+  --text-body-size: 1rem;              /* 16px */
+  --text-body-weight: 400;
+  --text-body-lh: 1.5;
+  --text-button-weight: 500;
+
+  /* Caption */
+  --text-caption-size: 0.875rem;       /* 14px */
+  --text-caption-weight: 400;
+  --text-caption-lh: 1.43;
+
+  /* Micro */
+  --text-micro-size: 0.75rem;          /* 12px */
+  --text-micro-weight: 400;
+  --text-micro-lh: 1.67;
+
+  /* ═══════════════════════════════════════════
+     BORDER RADIUS
+     ═══════════════════════════════════════════ */
+  --radius-none: 0px;
+  --radius-standard: 8px;
+  --radius-comfortable: 12px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  /* ═══════════════════════════════════════════
+     SPACING (8px grid)
+     ═══════════════════════════════════════════ */
+  --space-2xs: 4px;
+  --space-xs: 6px;
+  --space-sm: 8px;
+  --space-md: 10px;
+  --space-base: 12px;
+  --space-lg: 14px;
+  --space-xl: 16px;
+  --space-2xl: 18px;
+  --space-3xl: 20px;
+  --space-4xl: 24px;
+  --space-5xl: 32px;
+  --space-6xl: 48px;
+  --space-7xl: 64px;
+  --space-8xl: 96px;
+
+  /* ═══════════════════════════════════════════
+     LAYOUT
+     ═══════════════════════════════════════════ */
+  --container-max: 1136px;
+  --sidebar-width: 240px;
+
+  /* ═══════════════════════════════════════════
+     TRANSITIONS
+     ═══════════════════════════════════════════ */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}

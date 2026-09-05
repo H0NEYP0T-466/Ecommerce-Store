@@ -1,5 +1,53 @@
+# ══════════════════════════════════════════════════════
+# Hamid Cloth House — .gitignore
+# ══════════════════════════════════════════════════════
+
+# Environment Variables & Secrets
+.env
+.env.*
+*.env
+!.env.example
+!backend/.env.example
+
+# Python Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+backend/venv/
+backend/.venv/
+backend/env/
+*/venv/
+*/.venv/
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Pytest & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+htmlcov/
+
+# Node & Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vite/
+.turbo/
+
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,18 +55,36 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Database & Persistent Volumes
+mongodb_data/
+mongo_data/
+data/db/
+*.db
+*.sqlite3
 
-# Editor directories and files
+# Local Uploads & Temporary Media
+uploads/
+media/
+backend/uploads/
+backend/media/
+
+# Editor & IDE files
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+!.vscode/settings.json
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*~
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

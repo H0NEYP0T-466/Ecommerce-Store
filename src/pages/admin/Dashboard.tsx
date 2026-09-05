@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { TrendingUp, ShoppingBag, Users, DollarSign, Package } from 'lucide-react';
+import { TrendingUp, ShoppingBag, DollarSign, Package } from 'lucide-react';
 import Badge from '../../components/ui/Badge';
 import { adminService } from '../../services/admin';
 import { formatPKR, formatDate } from '../../utils/format';

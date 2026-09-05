@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { Package, ChevronRight } from 'lucide-react';
 import Badge from '../../components/ui/Badge';
 import { orderService } from '../../services/orders';
-import { formatPKR, formatDate, getStatusColor } from '../../utils/format';
+import { formatPKR, formatDate } from '../../utils/format';
 import type { Order } from '../../types';
 import './Orders.css';
 

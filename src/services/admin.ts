@@ -3,7 +3,7 @@
  */
 import api from './api';
 import type {
-  Category, Product, ProductDetail, ProductListResponse,
+  Category, ProductDetail, ProductListResponse,
   Order, OrderListResponse,
   User, UserListResponse,
   Review, ReviewListResponse,

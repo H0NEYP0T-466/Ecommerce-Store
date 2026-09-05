@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Plus, Search, Edit2, Trash2, Eye, EyeOff } from 'lucide-react';
+
+import { Plus, Eye, EyeOff } from 'lucide-react';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
 import Input from '../../components/ui/Input';
-import Modal from '../../components/ui/Modal';
+
 import { useToast } from '../../components/ui/Toast';
 import { adminService } from '../../services/admin';
-import { formatPKR, formatDate } from '../../utils/format';
+import { formatPKR } from '../../utils/format';
 import type { Product } from '../../types';
 import './Admin.css';
 
@@ -17,7 +17,7 @@ export default function AdminProducts() {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
-  const [loading, setLoading] = useState(true);
+
 
   const load = async () => {
     setLoading(true);

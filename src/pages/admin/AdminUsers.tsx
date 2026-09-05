@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Search, Plus, Trash2 } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 import Badge from '../../components/ui/Badge';
-import Button from '../../components/ui/Button';
+
 import Input from '../../components/ui/Input';
 import { useToast } from '../../components/ui/Toast';
 import { adminService } from '../../services/admin';

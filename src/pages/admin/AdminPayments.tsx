@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Plus, Trash2, CreditCard } from 'lucide-react';
 import Button from '../../components/ui/Button';
-import Badge from '../../components/ui/Badge';
+
 import Input from '../../components/ui/Input';
 import Modal from '../../components/ui/Modal';
 import { useToast } from '../../components/ui/Toast';

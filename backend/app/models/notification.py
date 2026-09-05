@@ -18,9 +18,10 @@ class Notification(Document):
     type: NotificationType
     entity_id: str  # ID of related order, review, product, etc.
     message: str
-    is_read: Indexed(bool) = False
+    is_read: bool = False
 
     created_at: Indexed(datetime) = Field(default_factory=datetime.utcnow)
 
     class Settings:
         name = "notifications"
+        indexes = ["is_read"]

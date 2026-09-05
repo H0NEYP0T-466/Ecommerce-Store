@@ -14,7 +14,7 @@ class Review(Document):
     rating: int = Field(ge=1, le=5)
     comment: str = ""
 
-    is_approved: Indexed(bool) = True
+    is_approved: bool = True
     is_hidden: bool = False
 
     admin_reply: Optional[str] = None
@@ -25,3 +25,4 @@ class Review(Document):
 
     class Settings:
         name = "reviews"
+        indexes = ["is_approved"]

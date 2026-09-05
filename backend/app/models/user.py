@@ -1,5 +1,5 @@
 from datetime import datetime
-from enum import str as StrEnum, Enum
+from enum import Enum
 from typing import Optional
 
 from beanie import Document, Indexed

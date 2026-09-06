@@ -35,9 +35,6 @@ async def enrich_cart(cart: Cart) -> CartResponse:
         if not variation:
             continue
 
-        product = await Product.find_one({"_id": {"$oid": variation.product_id}} if len(variation.product_id) == 24 else Product.find_one())
-        # More robust product lookup
-        from bson import ObjectId
         try:
             product = await Product.get(variation.product_id)
         except Exception:

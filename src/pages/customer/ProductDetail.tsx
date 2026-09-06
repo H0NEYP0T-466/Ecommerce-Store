@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ShoppingBag, Minus, Plus, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import Button from '../../components/ui/Button';
@@ -15,6 +15,7 @@ import './ProductDetail.css';
 
 export default function ProductDetail() {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const { addToCart } = useCartStore();
   const { isAuthenticated } = useAuthStore();
   const { toast } = useToast();
@@ -53,28 +54,42 @@ export default function ProductDetail() {
 
   const handleAddToCart = async () => {
     if (!selectedVariation) return;
+    if (!isAuthenticated) {
+      toast('Please log in to add items to your cart', 'info');
+      navigate('/login');
+      return;
+    }
     setAdding(true);
     try {
       await addToCart(selectedVariation.id, quantity);
       toast('Added to cart!');
-    } catch {
-      toast('Failed to add to cart', 'error');
+    } catch (err: any) {
+      const msg = err.response?.data?.detail || 'Failed to add to cart';
+      toast(msg, 'error');
+    } finally {
+      setAdding(false);
     }
-    setAdding(false);
   };
 
   const handleSubmitReview = async () => {
     if (!product) return;
+    if (!isAuthenticated) {
+      toast('Please log in to submit a review', 'info');
+      navigate('/login');
+      return;
+    }
     setSubmittingReview(true);
     try {
       await productService.createReview(product.id, reviewRating, reviewComment);
       toast('Review submitted! It will appear after approval.');
       setReviewComment('');
       setReviewRating(5);
-    } catch {
-      toast('Failed to submit review', 'error');
+    } catch (err: any) {
+      const msg = err.response?.data?.detail || 'Failed to submit review';
+      toast(msg, 'error');
+    } finally {
+      setSubmittingReview(false);
     }
-    setSubmittingReview(false);
   };
 
   const currentImages = selectedVariation?.images || [];

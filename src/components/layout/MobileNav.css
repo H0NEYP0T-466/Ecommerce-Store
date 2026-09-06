@@ -17,6 +17,9 @@
     justify-content: space-around;
     align-items: center;
   }
+  body {
+    padding-bottom: 64px;
+  }
 }
 
 .mobile-nav-item {

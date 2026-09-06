@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Search, Eye, ChevronRight } from 'lucide-react';
-import Badge from '../../components/ui/Badge';
+
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import { Select } from '../../components/ui/Input';
@@ -26,7 +24,7 @@ export default function AdminOrders() {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
 
   const load = async () => {
     setLoading(true);

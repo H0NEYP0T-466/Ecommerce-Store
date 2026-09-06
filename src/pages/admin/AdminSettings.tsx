@@ -23,7 +23,7 @@ export default function AdminSettings() {
     if (!settings) return;
     setSaving(true);
     try {
-      await adminService.updateSettings(settings);
+      await adminService.updateSettings(settings as unknown as Record<string, unknown>);
       toast('Settings saved');
     } catch { toast('Failed', 'error'); }
     setSaving(false);

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShoppingBag, Heart } from 'lucide-react';
+
 import StarRating from '../ui/StarRating';
 import { formatPKR, getImageUrl } from '../../utils/format';
 import type { Product } from '../../types';

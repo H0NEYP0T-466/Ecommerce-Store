@@ -21,3 +21,56 @@
 .auth-link { color: var(--uber-black); font-size: var(--text-caption-size); text-decoration: underline; }
 .auth-switch { font-size: var(--text-caption-size); color: var(--body-gray); margin-top: var(--space-base); }
 .auth-link-bold { color: var(--uber-black); font-weight: 700; text-decoration: none; }
+
+/* ── Auth Header ── */
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+.auth-header h1 {
+  font-size: var(--text-card-size);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.auth-header p {
+  color: var(--muted-gray);
+  font-size: var(--text-caption-size);
+}
+
+/* ── Auth Footer ── */
+.auth-footer {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-base);
+  margin-top: var(--space-sm);
+}
+
+/* ── Auth Success State ── */
+.auth-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-base);
+}
+.auth-success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-circle);
+  background: var(--hover-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--uber-black);
+  margin-bottom: var(--space-sm);
+}
+.auth-success h3 {
+  font-size: var(--text-subheading-size);
+  font-weight: 700;
+}
+.auth-success p {
+  color: var(--body-gray);
+  font-size: var(--text-caption-size);
+  max-width: 320px;
+}
+

@@ -3,7 +3,7 @@ import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import {
   LayoutDashboard, ShoppingBag, Package, Users, Star, Image,
-  Tag, CreditCard, Settings, BarChart3, Bell, LogOut, ChevronRight, Menu, X,
+  Tag, CreditCard, Settings, BarChart3, Bell, LogOut, Menu, X,
 } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
 import { useNotificationStore } from '../../store/notificationStore';

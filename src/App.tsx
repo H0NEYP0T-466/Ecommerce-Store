@@ -26,6 +26,11 @@ import Login from './pages/customer/Login';
 import Register from './pages/customer/Register';
 import Orders from './pages/customer/Orders';
 import OrderDetail from './pages/customer/OrderDetail';
+import ForgotPassword from './pages/customer/ForgotPassword';
+import ResetPassword from './pages/customer/ResetPassword';
+import Profile from './pages/customer/Profile';
+import OrderConfirmation from './pages/customer/OrderConfirmation';
+import NotFound from './pages/customer/NotFound';
 
 // Admin Pages
 import AdminLayout from './pages/admin/AdminLayout';
@@ -94,14 +99,22 @@ export default function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/checkout" element={
               <ProtectedRoute><Checkout /></ProtectedRoute>
+            } />
+            <Route path="/order-confirmation" element={
+              <ProtectedRoute><OrderConfirmation /></ProtectedRoute>
             } />
             <Route path="/orders" element={
               <ProtectedRoute><Orders /></ProtectedRoute>
             } />
             <Route path="/orders/:id" element={
               <ProtectedRoute><OrderDetail /></ProtectedRoute>
+            } />
+            <Route path="/profile" element={
+              <ProtectedRoute><Profile /></ProtectedRoute>
             } />
           </Route>
 
@@ -123,7 +136,9 @@ export default function App() {
           </Route>
 
           {/* Catch all */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<CustomerLayout />}>
+            <Route path="*" element={<NotFound />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </HelmetProvider>

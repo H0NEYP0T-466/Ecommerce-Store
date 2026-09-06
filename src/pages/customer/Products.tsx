@@ -83,7 +83,7 @@ export default function Products() {
   return (
     <>
       <Helmet>
-        <title>{search ? `Search: "${search}"` : category ? `${category} — Products` : 'All Products'} | Hamid Cloth House</title>
+        <title>{`${search ? `Search: "${search}"` : category ? `${category} — Products` : 'All Products'} | Hamid Cloth House`}</title>
       </Helmet>
 
       <div className="products-page container">

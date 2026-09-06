@@ -69,8 +69,8 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuthStore();
   if (isLoading) {
     return (
-      <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div className="loading-spinner" />
+      <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <img src="/logo-anim.gif" alt="Loading" style={{ width: '84px', borderRadius: '8px', background: '#000' }} />
       </div>
     );
   }
@@ -82,8 +82,8 @@ function AdminRoute({ children }: { children: React.ReactNode }) {
   const { user, isAuthenticated, isLoading } = useAuthStore();
   if (isLoading) {
     return (
-      <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div className="loading-spinner" />
+      <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <img src="/logo-anim.gif" alt="Loading" style={{ width: '84px', borderRadius: '8px', background: '#000' }} />
       </div>
     );
   }

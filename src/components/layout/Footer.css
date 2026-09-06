@@ -6,8 +6,15 @@
 .footer-grid {
   display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-5xl);
 }
+.footer-brand-wrap {
+  display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-base);
+}
+.footer-logo-img {
+  width: 44px; height: 44px; object-fit: contain; border-radius: 6px;
+  border: 1px solid #333;
+}
 .footer-brand {
-  font-size: var(--text-small-heading-size); font-weight: 700; margin-bottom: var(--space-base);
+  font-size: var(--text-small-heading-size); font-weight: 700; margin-bottom: 0;
 }
 .footer-desc {
   font-size: var(--text-caption-size); color: #999; line-height: 1.6;

@@ -125,6 +125,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══ Heritage & Brand Showcase ═══ */}
+      <section className="brand-heritage-section">
+        <div className="container">
+          <div className="brand-heritage-grid">
+            <div className="brand-heritage-media">
+              <img src="/logo-anim.gif" alt="Hamid Cloth House Brand Reveal" className="brand-heritage-gif" />
+            </div>
+            <div className="brand-heritage-content">
+              <span className="brand-heritage-badge">Heritage & Craft</span>
+              <h2>Authentic Pakistani Craftsmanship</h2>
+              <p>
+                At Hamid Cloth House, we weave tradition into every thread. From hand-crafted embroidery to premium fabrics, experience timeless elegance made for every special occasion.
+              </p>
+              <div className="brand-heritage-actions">
+                <Link to="/products">
+                  <Button variant="secondary" size="lg">Explore All Collections <ArrowRight size={18} /></Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ Promotions Banner ═══ */}
       {promotions.length > 0 && (
         <section className="promo-banner">

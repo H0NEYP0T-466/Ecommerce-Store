@@ -44,6 +44,9 @@ export default function Register() {
     <div className="auth-page">
       <Helmet><title>Sign Up | Hamid Cloth House</title></Helmet>
       <div className="auth-card">
+        <Link to="/" style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+          <img src="/logo.jpg" alt="Hamid Cloth House" style={{ width: '64px', height: '64px', borderRadius: '10px', objectFit: 'contain', background: '#000', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }} />
+        </Link>
         <h1 className="auth-title">Create Account</h1>
         <p className="auth-subtitle">Join Hamid Cloth House</p>
 

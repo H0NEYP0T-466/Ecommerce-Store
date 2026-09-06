@@ -24,6 +24,19 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
+.confirmation-brand-anim {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-xl);
+}
+.confirmation-gif {
+  width: 130px;
+  height: auto;
+  border-radius: var(--radius-standard);
+  background: #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
 .confirmation-icon {
   display: flex;
   align-items: center;

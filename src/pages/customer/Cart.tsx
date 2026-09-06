@@ -50,7 +50,7 @@ export default function Cart() {
       <div className="cart-page container">
         <Helmet><title>Cart | Hamid Cloth House</title></Helmet>
         <div style={{ minHeight: '40vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
-          <div className="loading-spinner" />
+          <img src="/logo-anim.gif" alt="Loading" style={{ width: '84px', borderRadius: '8px', background: '#000' }} />
           <p style={{ color: 'var(--muted-gray)' }}>Loading your cart...</p>
         </div>
       </div>

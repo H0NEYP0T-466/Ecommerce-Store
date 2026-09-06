@@ -82,6 +82,58 @@
   margin-top: var(--space-sm); opacity: 0.8;
 }
 
+/* ═══ Heritage & Brand Showcase ═══ */
+.brand-heritage-section {
+  background: var(--uber-black);
+  color: var(--pure-white);
+  padding: var(--space-8xl) 0;
+  margin: var(--space-6xl) 0;
+}
+.brand-heritage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6xl);
+  align-items: center;
+}
+.brand-heritage-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  border-radius: var(--radius-comfortable);
+  overflow: hidden;
+  border: 1px solid #222;
+  padding: var(--space-4xl);
+}
+.brand-heritage-gif {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  border-radius: var(--radius-standard);
+  display: block;
+}
+.brand-heritage-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #d4af37;
+  margin-bottom: var(--space-base);
+}
+.brand-heritage-content h2 {
+  font-size: var(--text-section-size);
+  color: var(--pure-white);
+  margin-bottom: var(--space-base);
+  line-height: 1.25;
+}
+.brand-heritage-content p {
+  color: #aaa;
+  font-size: var(--text-nav-size);
+  line-height: 1.6;
+  margin-bottom: var(--space-5xl);
+}
+
 /* ═══ Promo Banner ═══ */
 .promo-banner {
   background: var(--uber-black); color: var(--pure-white);
@@ -110,6 +162,7 @@
 @media (max-width: 768px) {
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-xl); }
   .categories-grid { grid-template-columns: 1fr; }
+  .brand-heritage-grid { grid-template-columns: 1fr; gap: var(--space-4xl); text-align: center; }
   .slide-image { height: 350px; }
   .slide-title { font-size: var(--text-subheading-size); }
 }

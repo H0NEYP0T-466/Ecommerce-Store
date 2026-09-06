@@ -13,7 +13,7 @@ export default function SEOHead({
   title = 'Hamid Cloth House | Premium Pakistani Clothing',
   description = 'Shop the finest Pakistani men\'s and women\'s clothing, Kurtas, Shalwar Kameez, Waistcoats, and Shawls from Hamid Cloth House.',
   keywords = [],
-  image = '/assets/hero.png',
+  image = '/logo.jpg',
   url,
   type = 'website',
 }: SEOHeadProps) {

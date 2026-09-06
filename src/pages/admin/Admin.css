@@ -10,9 +10,11 @@
   display: flex; align-items: center; justify-content: space-between;
   padding: var(--space-4xl); border-bottom: 1px solid #222;
 }
-.sidebar-logo { text-decoration: none; display: flex; flex-direction: column; }
-.sidebar-logo-text { font-size: 20px; font-weight: 700; color: var(--pure-white); letter-spacing: -0.5px; }
-.sidebar-logo-sub { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px; }
+.sidebar-logo { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.sidebar-logo-img { width: 34px; height: 34px; object-fit: contain; border-radius: 6px; border: 1px solid #333; }
+.sidebar-logo-text-wrap { display: flex; flex-direction: column; }
+.sidebar-logo-text { font-size: 18px; font-weight: 700; color: var(--pure-white); letter-spacing: -0.5px; }
+.sidebar-logo-sub { font-size: 9px; color: #888; text-transform: uppercase; letter-spacing: 2px; }
 .sidebar-close { display: none; background: none; border: none; color: #999; cursor: pointer; }
 
 .sidebar-nav { flex: 1; padding: var(--space-xl) 0; overflow-y: auto; }

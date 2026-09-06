@@ -46,6 +46,9 @@ export default function Login() {
     <div className="auth-page">
       <Helmet><title>Log In | Hamid Cloth House</title></Helmet>
       <div className="auth-card">
+        <Link to="/" style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+          <img src="/logo.jpg" alt="Hamid Cloth House" style={{ width: '64px', height: '64px', borderRadius: '10px', objectFit: 'contain', background: '#000', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }} />
+        </Link>
         <h1 className="auth-title">Log In</h1>
         <p className="auth-subtitle">Welcome back to Hamid Cloth House</p>
 

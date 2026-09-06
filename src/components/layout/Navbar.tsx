@@ -60,8 +60,11 @@ export default function Navbar() {
       <div className="navbar-inner container">
         {/* Logo */}
         <Link to="/" className="navbar-logo">
-          <span className="logo-text">Hamid</span>
-          <span className="logo-sub">Cloth House</span>
+          <img src="/logo.jpg" alt="Hamid Cloth House" className="navbar-logo-img" />
+          <div className="navbar-logo-text-wrap">
+            <span className="logo-text">Hamid</span>
+            <span className="logo-sub">Cloth House</span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}

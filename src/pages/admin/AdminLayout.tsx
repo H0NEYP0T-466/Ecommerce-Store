@@ -57,8 +57,11 @@ export default function AdminLayout() {
       <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <Link to="/" className="sidebar-logo">
-            <span className="sidebar-logo-text">HCH</span>
-            <span className="sidebar-logo-sub">Admin</span>
+            <img src="/logo.jpg" alt="Hamid Cloth House" className="sidebar-logo-img" />
+            <div className="sidebar-logo-text-wrap">
+              <span className="sidebar-logo-text">Hamid</span>
+              <span className="sidebar-logo-sub">Admin</span>
+            </div>
           </Link>
           <button className="sidebar-close" onClick={() => setSidebarOpen(false)}><X size={20} /></button>
         </div>

@@ -12,7 +12,10 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand */}
           <div className="footer-col">
-            <h5 className="footer-brand">Hamid Cloth House</h5>
+            <div className="footer-brand-wrap">
+              <img src="/logo.jpg" alt="Hamid Cloth House" className="footer-logo-img" />
+              <h5 className="footer-brand">Hamid Cloth House</h5>
+            </div>
             <p className="footer-desc">
               Premium Pakistani clothing for men & women. Quality fabrics, elegant designs, delivered to your doorstep.
             </p>

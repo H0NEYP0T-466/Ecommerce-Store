@@ -29,8 +29,12 @@ export default function OrderConfirmation() {
 
       <div className="confirmation-page">
         <div className={`confirmation-card ${showConfetti ? 'with-confetti' : ''}`}>
+          <div className="confirmation-brand-anim">
+            <img src="/logo-anim.gif" alt="Hamid Cloth House" className="confirmation-gif" />
+          </div>
+
           <div className="confirmation-icon">
-            <CheckCircle size={56} />
+            <CheckCircle size={48} />
           </div>
 
           <h1 className="confirmation-title">Order Placed!</h1>

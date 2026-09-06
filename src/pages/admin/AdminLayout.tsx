@@ -32,7 +32,8 @@ export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
-    if (user?.role !== 'admin') {
+    if (!user) return;
+    if (user.role !== 'admin') {
       navigate('/');
       return;
     }

@@ -46,6 +46,8 @@ import AdminPayments from './pages/admin/AdminPayments';
 import AdminReports from './pages/admin/AdminReports';
 import AdminSettings from './pages/admin/AdminSettings';
 
+import MobileNav from './components/layout/MobileNav';
+
 function CustomerLayout() {
   return (
     <>
@@ -55,18 +57,33 @@ function CustomerLayout() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <MobileNav />
     </>
   );
 }
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated } = useAuthStore();
+  const { isAuthenticated, isLoading } = useAuthStore();
+  if (isLoading) {
+    return (
+      <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="loading-spinner" />
+      </div>
+    );
+  }
   if (!isAuthenticated) return <Navigate to="/login" replace />;
   return <>{children}</>;
 }
 
 function AdminRoute({ children }: { children: React.ReactNode }) {
-  const { user, isAuthenticated } = useAuthStore();
+  const { user, isAuthenticated, isLoading } = useAuthStore();
+  if (isLoading) {
+    return (
+      <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="loading-spinner" />
+      </div>
+    );
+  }
   if (!isAuthenticated) return <Navigate to="/login" replace />;
   if (user && user.role !== 'admin') return <Navigate to="/" replace />;
   return <>{children}</>;

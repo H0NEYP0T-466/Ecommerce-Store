@@ -6,7 +6,7 @@ interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
   isLoading: boolean;
-  login: (email: string, password: string) => Promise<void>;
+  login: (email: string, password: string) => Promise<User>;
   register: (data: { email: string; password: string; first_name: string; last_name: string; phone?: string }) => Promise<void>;
   logout: () => void;
   loadUser: () => Promise<void>;
@@ -16,14 +16,15 @@ interface AuthState {
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   isAuthenticated: !!localStorage.getItem('access_token'),
-  isLoading: false,
+  isLoading: !!localStorage.getItem('access_token'),
 
   login: async (email, password) => {
     const data = await authService.login(email, password);
     localStorage.setItem('access_token', data.access_token);
     localStorage.setItem('refresh_token', data.refresh_token);
     const user = await authService.getProfile();
-    set({ user, isAuthenticated: true });
+    set({ user, isAuthenticated: true, isLoading: false });
+    return user;
   },
 
   register: async (regData) => {

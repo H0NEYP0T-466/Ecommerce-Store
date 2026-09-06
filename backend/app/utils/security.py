@@ -9,21 +9,23 @@ from passlib.context import CryptContext
 from app.config import settings
 from app.models.user import User, UserRole
 
-# Password hashing
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto", bcrypt__rounds=12)
+import bcrypt
 
-# Bearer token extractor
 security_scheme = HTTPBearer(auto_error=False)
 
-
+# Password hashing
 def hash_password(password: str) -> str:
     """Hash a password with bcrypt cost 12."""
-    return pwd_context.hash(password)
+    salt = bcrypt.gensalt(rounds=12)
+    return bcrypt.hashpw(password.encode("utf-8"), salt).decode("utf-8")
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     """Verify a password against its hash."""
-    return pwd_context.verify(plain_password, hashed_password)
+    try:
+        return bcrypt.checkpw(plain_password.encode("utf-8"), hashed_password.encode("utf-8"))
+    except Exception:
+        return False
 
 
 def create_access_token(user_id: str, role: str) -> str:

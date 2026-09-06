@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: hamid-cloth-house-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: MONGODB_URL
+        sync: false
+      - key: DB_NAME
+        value: hamid_cloth_house
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_ORIGIN
+        value: https://hamidclothhouse.com
+      - key: PORT
+        value: "8015"
+      - key: DEBUG
+        value: "false"

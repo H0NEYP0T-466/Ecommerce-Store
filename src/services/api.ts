@@ -46,7 +46,21 @@ const processQueue = (error: unknown, token: string | null = null) => {
 api.interceptors.response.use(
   (response) => response,
   async (error: AxiosError) => {
-    const originalRequest = error.config as InternalAxiosRequestConfig & { _retry?: boolean };
+    const originalRequest = error.config as (InternalAxiosRequestConfig & { _retry?: boolean }) | undefined;
+
+    if (!originalRequest) {
+      return Promise.reject(error);
+    }
+
+    // Never intercept auth endpoints - let login, register, and refresh failures bubble up to caller
+    const url = originalRequest.url || '';
+    if (
+      url.includes('/api/auth/login') ||
+      url.includes('/api/auth/register') ||
+      url.includes('/api/auth/refresh')
+    ) {
+      return Promise.reject(error);
+    }
 
     if (error.response?.status === 401 && !originalRequest._retry) {
       if (isRefreshing) {
@@ -72,7 +86,9 @@ api.interceptors.response.use(
         // Clear auth state
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
-        window.location.href = '/login';
+        if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
+          window.location.href = '/login';
+        }
         return Promise.reject(error);
       }
 
@@ -94,7 +110,9 @@ api.interceptors.response.use(
         processQueue(refreshError, null);
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
-        window.location.href = '/login';
+        if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
+          window.location.href = '/login';
+        }
         return Promise.reject(refreshError);
       } finally {
         isRefreshing = false;

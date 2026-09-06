@@ -107,7 +107,7 @@ export default function Navbar() {
                     <p className="user-menu-name">{user?.first_name} {user?.last_name}</p>
                     <p className="user-menu-email">{user?.email}</p>
                   </div>
-                  <Link to="/account" className="user-menu-item" onClick={() => setUserMenuOpen(false)}>My Account</Link>
+                  <Link to="/profile" className="user-menu-item" onClick={() => setUserMenuOpen(false)}>My Profile</Link>
                   <Link to="/orders" className="user-menu-item" onClick={() => setUserMenuOpen(false)}>My Orders</Link>
                   {user?.role === 'admin' && (
                     <Link to="/admin" className="user-menu-item" onClick={() => setUserMenuOpen(false)}>Admin Dashboard</Link>

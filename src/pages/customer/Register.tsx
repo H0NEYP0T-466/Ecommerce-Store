@@ -27,9 +27,17 @@ export default function Register() {
       toast('Account created! Welcome to Hamid Cloth House.');
       navigate('/');
     } catch (err: any) {
-      setError(err.response?.data?.detail || 'Registration failed');
+      const detail = err.response?.data?.detail;
+      if (typeof detail === 'string') {
+        setError(detail);
+      } else if (err.message === 'Network Error') {
+        setError('Unable to reach backend server. Please verify backend is running on port 8015.');
+      } else {
+        setError('Registration failed');
+      }
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (

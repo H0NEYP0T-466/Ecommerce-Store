@@ -1,0 +1,83 @@
+.cart-item-card {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: var(--pure-white, #fff);
+  border-bottom: 1px solid var(--hover-gray, #e2e2e2);
+  align-items: center;
+}
+
+.cart-item-image {
+  width: 72px;
+  height: 90px;
+  border-radius: var(--radius-standard, 8px);
+  object-fit: cover;
+  background: var(--chip-gray, #efefef);
+  flex-shrink: 0;
+}
+
+.cart-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cart-item-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--uber-black, #000);
+  text-decoration: none;
+}
+
+.cart-item-variant {
+  font-size: 13px;
+  color: var(--body-gray, #4b4b4b);
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border-black, #000);
+  border-radius: var(--radius-pill, 999px);
+  overflow: hidden;
+}
+
+.qty-stepper button {
+  background: none;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qty-stepper button:hover {
+  background: var(--hover-light, #f3f3f3);
+}
+
+.qty-stepper span {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0 4px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: var(--muted-gray, #afafaf);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.15s ease;
+}
+
+.remove-btn:hover {
+  color: #d32f2f;
+}

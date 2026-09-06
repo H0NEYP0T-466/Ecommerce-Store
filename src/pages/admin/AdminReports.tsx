@@ -3,6 +3,7 @@ import { DollarSign, ShoppingBag, TrendingUp } from 'lucide-react';
 import { adminService } from '../../services/admin';
 import { formatPKR } from '../../utils/format';
 import type { FinanceReport, OrderReport } from '../../types';
+import ReportCharts from '../../components/admin/ReportCharts';
 import './Admin.css';
 
 export default function AdminReports() {
@@ -69,6 +70,9 @@ export default function AdminReports() {
           </div>
         </div>
       )}
+
+      {/* Visual Analytics Charts */}
+      <ReportCharts finance={finance} orderReport={orderReport} />
     </div>
   );
 }

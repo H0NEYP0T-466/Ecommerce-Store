@@ -21,13 +21,25 @@ export default function Login() {
     setError('');
     setLoading(true);
     try {
-      await login(email, password);
+      const loggedInUser = await login(email, password);
       toast('Welcome back!');
-      navigate('/');
+      if (loggedInUser?.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/');
+      }
     } catch (err: any) {
-      setError(err.response?.data?.detail || 'Invalid email or password');
+      const detail = err.response?.data?.detail;
+      if (typeof detail === 'string') {
+        setError(detail);
+      } else if (err.message === 'Network Error') {
+        setError('Unable to reach server on port 8015. Please ensure backend is running.');
+      } else {
+        setError('Invalid email or password');
+      }
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (

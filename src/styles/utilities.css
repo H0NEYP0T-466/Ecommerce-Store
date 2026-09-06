@@ -1,0 +1,45 @@
+/* Reusable utility classes based on Uber design tokens */
+
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1; }
+
+.gap-xs { gap: var(--space-xs, 4px); }
+.gap-sm { gap: var(--space-sm, 8px); }
+.gap-md { gap: var(--space-md, 16px); }
+.gap-lg { gap: var(--space-lg, 24px); }
+.gap-xl { gap: var(--space-xl, 32px); }
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-muted { color: var(--muted-gray, #afafaf); }
+.text-body { color: var(--body-gray, #4b4b4b); }
+.text-bold { font-weight: 700; }
+.text-medium { font-weight: 500; }
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+.container-sm {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-md, 16px);
+  padding-right: var(--space-md, 16px);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

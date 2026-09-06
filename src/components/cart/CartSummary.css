@@ -1,0 +1,29 @@
+.cart-summary-box {
+  background: var(--chip-gray, #efefef);
+  border-radius: var(--radius-comfortable, 12px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.summary-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--body-gray, #4b4b4b);
+}
+
+.summary-row.total {
+  border-top: 1px solid var(--hover-gray, #e2e2e2);
+  padding-top: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--uber-black, #000);
+}

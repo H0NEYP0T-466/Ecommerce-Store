@@ -5,7 +5,7 @@ import Input from '../../components/ui/Input';
 import { Select } from '../../components/ui/Input';
 import { useToast } from '../../components/ui/Toast';
 import { adminService } from '../../services/admin';
-import { formatPKR, formatDate } from '../../utils/format';
+import { formatPKR, formatDate, getImageUrl } from '../../utils/format';
 import type { Order } from '../../types';
 import './Admin.css';
 
@@ -102,7 +102,13 @@ export default function AdminOrders() {
                   </td>
                   <td>{formatDate(o.created_at)}</td>
                   <td>
-                    {o.payment_proof_url && <span title="Has payment proof">📎</span>}
+                    {o.payment_proof_url ? (
+                      <a href={getImageUrl(o.payment_proof_url)} target="_blank" rel="noopener noreferrer" title="View uploaded payment receipt" style={{ textDecoration: 'underline', color: 'inherit', fontWeight: 600 }}>
+                        📎 Receipt
+                      </a>
+                    ) : (
+                      <span style={{ color: 'var(--muted-gray)' }}>-</span>
+                    )}
                   </td>
                 </tr>
               ))}

@@ -141,8 +141,8 @@ async def create_order_from_cart(
     await cart.save()
 
     # Phase 5: Check for low stock and notify
-    for cart_item in cart.items:
-        variation = await ProductVariation.get(cart_item.product_variation_id)
+    for item in order_items:
+        variation = await ProductVariation.get(item.product_variation_id)
         if variation and variation.stock_quantity <= 5:
             product = await Product.get(variation.product_id)
             await create_notification(

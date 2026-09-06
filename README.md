@@ -135,7 +135,7 @@ To access the admin dashboard, sign in with the admin credentials and navigate t
 ```bash
 PYTHONPATH=backend backend/.venv/bin/pytest backend/tests/ -v
 ```
-> Runs 16 automated tests covering authentication, tokens, admin route guards, health checks, slugification, model constraints, and schema validations.
+> Runs 20 automated tests covering authentication, tokens, admin route guards, health checks, cart enrichment, slugification, model constraints, and schema validations.
 
 ### Build Frontend (Vite + TypeScript)
 ```bash

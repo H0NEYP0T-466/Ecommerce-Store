@@ -30,8 +30,10 @@ export function formatDateTime(dateString: string): string {
 
 export function getImageUrl(imageRef: string): string {
   if (!imageRef) return 'https://placehold.co/600x800/efefef/000000?text=No+Image';
-  if (imageRef.startsWith('http')) return imageRef;
+  if (imageRef.startsWith('http://') || imageRef.startsWith('https://')) return imageRef;
   const base = import.meta.env.VITE_API_URL || 'http://localhost:8015';
+  if (imageRef.startsWith('/api/images/')) return `${base}${imageRef}`;
+  if (imageRef.startsWith('/')) return imageRef;
   return `${base}/api/images/${imageRef}`;
 }
 

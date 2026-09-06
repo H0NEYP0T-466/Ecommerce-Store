@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 # Allowed image MIME types
 ALLOWED_IMAGE_TYPES = {
     "image/jpeg": ".jpg",
+    "image/jpg": ".jpg",
     "image/png": ".png",
     "image/webp": ".webp",
     "image/gif": ".gif",

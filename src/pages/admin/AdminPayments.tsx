@@ -6,7 +6,7 @@ import Input from '../../components/ui/Input';
 import Modal from '../../components/ui/Modal';
 import { useToast } from '../../components/ui/Toast';
 import { adminService } from '../../services/admin';
-import { formatPKR, formatDate } from '../../utils/format';
+import { formatPKR, formatDate, getImageUrl } from '../../utils/format';
 import type { BankAccount, Order } from '../../types';
 import './Admin.css';
 
@@ -77,7 +77,15 @@ export default function AdminPayments() {
                   <td><strong>{o.order_number}</strong></td>
                   <td>{o.customer_name}</td>
                   <td>{formatPKR(o.total_amount)}</td>
-                  <td>{o.payment_proof_url ? '✅' : '❌'}</td>
+                  <td>
+                    {o.payment_proof_url ? (
+                      <a href={getImageUrl(o.payment_proof_url)} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'inherit', fontWeight: 600 }}>
+                        View Receipt ↗
+                      </a>
+                    ) : (
+                      <span style={{ color: 'var(--muted-gray)' }}>None</span>
+                    )}
+                  </td>
                   <td>{formatDate(o.created_at)}</td>
                 </tr>
               ))}

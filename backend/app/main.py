@@ -58,10 +58,16 @@ app = FastAPI(
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# CORS
+# CORS configuration — supports development, staging, and production domains
+cors_origins = [orig.strip() for orig in settings.FRONTEND_ORIGIN.split(",") if orig.strip()]
+for default_origin in ["http://localhost:5173", "http://localhost:3000"]:
+    if default_origin not in cors_origins:
+        cors_origins.append(default_origin)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=cors_origins if "*" not in cors_origins else ["*"],
+    allow_origin_regex=r"https?://.*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -117,6 +123,7 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
 
 
 # Health check
+@app.get("/health")
 @app.get("/api/health")
 async def health_check():
     """Health check endpoint for monitoring and Render keep-alive."""

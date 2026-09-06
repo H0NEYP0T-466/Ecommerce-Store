@@ -6,7 +6,7 @@ import Badge from '../../components/ui/Badge';
 
 import { useToast } from '../../components/ui/Toast';
 import { orderService } from '../../services/orders';
-import { formatPKR, formatDateTime } from '../../utils/format';
+import { formatPKR, formatDateTime, getImageUrl } from '../../utils/format';
 import type { Order } from '../../types';
 import './OrderDetail.css';
 
@@ -109,7 +109,19 @@ export default function OrderDetail() {
               </label>
             </div>
           )}
-          {order.payment_proof_url && <p className="od-proof-msg">✓ Payment proof uploaded</p>}
+          {order.payment_proof_url && (
+            <div style={{ marginTop: '12px' }}>
+              <p className="od-proof-msg">✓ Payment proof uploaded</p>
+              <a
+                href={getImageUrl(order.payment_proof_url)}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontSize: '12px', color: 'var(--uber-black)', textDecoration: 'underline', marginTop: '4px', display: 'inline-block' }}
+              >
+                View uploaded receipt ↗
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>

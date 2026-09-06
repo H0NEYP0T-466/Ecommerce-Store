@@ -1,0 +1,55 @@
+name: "Feature request"
+description: "Propose an enhancement or new capability"
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting an enhancement for Hamid Cloth House! Please share your ideas below.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "Problem Statement"
+      description: "Is your feature request related to a specific problem or friction point? Please describe."
+      placeholder: "I'm always frustrated when..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Proposed Solution"
+      description: "A clear and concise description of what you want to happen."
+      placeholder: "Describe the desired functionality or feature..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternatives Considered"
+      description: "Any alternative solutions or features you've considered."
+      placeholder: "Describe any alternate approaches..."
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: "Scope & Out-of-Scope"
+      description: "What should be included in this work, and what should be explicitly excluded?"
+      placeholder: |
+        - In-scope: ...
+        - Out-of-scope: ...
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: "Risks & Trade-offs"
+      description: "Potential performance, security, or UX trade-offs to consider."
+
+  - type: textarea
+    id: context
+    attributes:
+      label: "Additional Context"
+      description: "Add any other context, screenshots, or mockups about the feature request here."

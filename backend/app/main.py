@@ -10,23 +10,40 @@ from app.config import settings
 from app.database import init_db, close_db
 from app.middleware.rate_limit import limiter
 
-# Configure logging
+import time
+from fastapi.responses import JSONResponse
+
+# Configure structured logging
 logging.basicConfig(
     level=logging.DEBUG if settings.DEBUG else logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    format="%(asctime)s | %(levelname)-7s | %(name)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    force=True,
 )
-logger = logging.getLogger(__name__)
+logging.getLogger("pymongo").setLevel(logging.WARNING)
+logger = logging.getLogger("app.main")
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Application lifespan — init and cleanup."""
-    logger.info("Starting Hamid Cloth House API...")
+    """Application lifespan — detailed startup and shutdown logging."""
+    logger.info("=" * 64)
+    logger.info("  %-30s  [FastAPI Backend]", settings.APP_NAME)
+    logger.info("  Listening on : http://0.0.0.0:%d", settings.PORT)
+    logger.info("  Interactive Docs: http://localhost:%d/docs", settings.PORT)
+    logger.info("  ReDoc Docs:       http://localhost:%d/redoc", settings.PORT)
+    logger.info("  Environment:      %s", "Development (DEBUG=True)" if settings.DEBUG else "Production")
+    logger.info("  MongoDB URL:      %s", settings.MONGODB_URL)
+    logger.info("  Database Name:    %s", settings.DB_NAME)
+    logger.info("=" * 64)
+
+    logger.info("[Startup] Starting database initialization...")
     await init_db()
-    logger.info("Database connected successfully")
+    logger.info("[Startup] Server initialization complete. Ready to receive requests.")
     yield
+    logger.info("[Shutdown] Initiating graceful shutdown...")
     await close_db()
-    logger.info("Database connection closed")
+    logger.info("[Shutdown] All connections closed. Goodbye.")
 
 
 # Create FastAPI app
@@ -44,22 +61,66 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        settings.FRONTEND_ORIGIN,
-        "http://localhost:5173",
-        "http://localhost:3000",
-    ],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 
+# Request/Response Logging Middleware
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    """Log every incoming request and response with latency."""
+    start_time = time.perf_counter()
+    client_ip = request.client.host if request.client else "unknown"
+    method = request.method
+    path = request.url.path
+    query = f"?{request.url.query}" if request.url.query else ""
+
+    logger.info("--> %s %s%s (client: %s)", method, path, query, client_ip)
+    try:
+        response = await call_next(request)
+        duration_ms = (time.perf_counter() - start_time) * 1000
+        logger.info(
+            "<-- %s %s%s [%d] (%.2fms)",
+            method,
+            path,
+            query,
+            response.status_code,
+            duration_ms,
+        )
+        return response
+    except Exception as exc:
+        duration_ms = (time.perf_counter() - start_time) * 1000
+        logger.error(
+            "<-- %s %s%s [EXCEPTION: %s] (%.2fms)",
+            method,
+            path,
+            query,
+            exc,
+            duration_ms,
+            exc_info=True,
+        )
+        raise
+
+
+# Unhandled Exception Handler
+@app.exception_handler(Exception)
+async def unhandled_exception_handler(request: Request, exc: Exception):
+    """Ensure any unhandled exception prints full traceback to logs."""
+    logger.error("Unhandled exception on %s %s: %s", request.method, request.url.path, exc, exc_info=True)
+    return JSONResponse(
+        status_code=500,
+        content={"detail": "Internal server error", "error": str(exc) if settings.DEBUG else None},
+    )
+
+
 # Health check
 @app.get("/api/health")
 async def health_check():
     """Health check endpoint for monitoring and Render keep-alive."""
-    return {"status": "ok", "app": settings.APP_NAME}
+    return {"status": "ok", "app": settings.APP_NAME, "port": settings.PORT}
 
 
 # Register routers
@@ -115,3 +176,8 @@ app.include_router(admin_sliders_router)
 app.include_router(admin_promotions_router)
 app.include_router(admin_settings_router)
 app.include_router(admin_reports_router)
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("app.main:app", host="0.0.0.0", port=settings.PORT, reload=True)

@@ -12,17 +12,18 @@ services:
     build: ./backend
     container_name: hch_backend
     ports:
-      - "8000:8000"
+      - "8015:8015"
     environment:
       - MONGODB_URL=mongodb://mongodb:27017
       - DB_NAME=hamid_cloth_house
       - JWT_SECRET=dev-secret-change-in-production
       - FRONTEND_ORIGIN=http://localhost:5173
+      - PORT=8015
       - DEBUG=true
     depends_on:
       - mongodb
     restart: unless-stopped
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8015 --reload
 
 volumes:
   mongodb_data:

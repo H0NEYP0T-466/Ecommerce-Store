@@ -16,7 +16,7 @@ class WebSocketService {
   private isConnected = false;
 
   constructor() {
-    const wsBase = (import.meta.env.VITE_API_URL || 'http://localhost:8000')
+    const wsBase = (import.meta.env.VITE_API_URL || 'http://localhost:8015')
       .replace('http://', 'ws://')
       .replace('https://', 'wss://');
     this.url = `${wsBase}/ws/notifications`;

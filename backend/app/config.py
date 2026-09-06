@@ -28,6 +28,7 @@ class Settings(BaseSettings):
 
     # App
     APP_NAME: str = "Hamid Cloth House"
+    PORT: int = 8015
     DEBUG: bool = True
 
     # Render keep-alive

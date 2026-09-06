@@ -4,19 +4,23 @@
 import { useCartStore } from '../store/cartStore';
 
 export function useCart() {
-  const { items, total, itemCount, loading, loadCart, addItem, updateItem, removeItem, clearCart } = useCartStore();
+  const { cart, isLoading, loadCart, addToCart, updateQuantity, removeItem, clearCart } = useCartStore();
 
+  const items = cart?.items || [];
+  const total = cart?.total || 0;
+  const itemCount = cart?.item_count || 0;
   const isEmpty = itemCount === 0;
 
   return {
+    cart,
     items,
     total,
     itemCount,
     isEmpty,
-    loading,
+    isLoading,
     loadCart,
-    addItem,
-    updateItem,
+    addToCart,
+    updateQuantity,
     removeItem,
     clearCart,
   };

@@ -4,7 +4,7 @@
 import { useAuthStore } from '../store/authStore';
 
 export function useAuth() {
-  const { user, isAuthenticated, loading, loadUser, logout } = useAuthStore();
+  const { user, isAuthenticated, isLoading, loadUser, logout, login, register } = useAuthStore();
 
   const isAdmin = user?.role === 'admin';
 
@@ -12,8 +12,10 @@ export function useAuth() {
     user,
     isAuthenticated,
     isAdmin,
-    loading,
+    isLoading,
     loadUser,
     logout,
+    login,
+    register,
   };
 }

@@ -327,6 +327,7 @@ async def seed():
                     user_name=customers[cust_idx].full_name,
                     rating=rating,
                     comment=comment,
+                    is_approved=True,
                 )
                 await review.insert()
 

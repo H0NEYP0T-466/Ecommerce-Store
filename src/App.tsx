@@ -47,13 +47,16 @@ import AdminReports from './pages/admin/AdminReports';
 import AdminSettings from './pages/admin/AdminSettings';
 
 import MobileNav from './components/layout/MobileNav';
+import ErrorBoundary from './components/ui/ErrorBoundary';
 
 function CustomerLayout() {
   return (
     <>
       <Navbar />
       <main style={{ minHeight: 'calc(100vh - 200px)' }}>
-        <Outlet />
+        <ErrorBoundary>
+          <Outlet />
+        </ErrorBoundary>
       </main>
       <Footer />
       <WhatsAppButton />
@@ -100,7 +103,11 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (isAuthenticated) loadCart();
+    if (isAuthenticated) {
+      loadCart();
+    } else {
+      useCartStore.setState({ cart: null, isLoading: false });
+    }
   }, [isAuthenticated]);
 
   return (

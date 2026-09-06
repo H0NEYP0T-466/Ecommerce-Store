@@ -44,7 +44,7 @@ export default function OrderDetail() {
 
   return (
     <div className="od-page container">
-      <Helmet><title>Order {order.order_number} | Hamid Cloth House</title></Helmet>
+      <Helmet><title>{`Order ${order.order_number} | Hamid Cloth House`}</title></Helmet>
 
       <div className="od-header">
         <div>

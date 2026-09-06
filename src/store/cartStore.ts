@@ -23,7 +23,7 @@ export const useCartStore = create<CartState>((set) => ({
       const cart = await cartService.getCart();
       set({ cart, isLoading: false });
     } catch {
-      set({ isLoading: false });
+      set({ cart: null, isLoading: false });
     }
   },
 

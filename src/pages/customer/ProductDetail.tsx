@@ -118,7 +118,7 @@ export default function ProductDetail() {
   return (
     <>
       <Helmet>
-        <title>{product.name} | Hamid Cloth House</title>
+        <title>{`${product.name} | Hamid Cloth House`}</title>
         <meta name="description" content={product.description.slice(0, 160)} />
         <meta name="keywords" content={product.seo_keywords.join(', ')} />
       </Helmet>

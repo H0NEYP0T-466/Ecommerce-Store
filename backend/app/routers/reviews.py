@@ -69,6 +69,7 @@ async def create_review(
         user_name=user.full_name,
         rating=data.rating,
         comment=data.comment,
+        is_approved=False,
     )
     await review.insert()
 

@@ -14,7 +14,7 @@ class Review(Document):
     rating: int = Field(ge=1, le=5)
     comment: str = ""
 
-    is_approved: bool = True
+    is_approved: bool = False
     is_hidden: bool = False
 
     admin_reply: Optional[str] = None

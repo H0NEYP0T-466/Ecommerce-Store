@@ -119,6 +119,24 @@ p {
 }
 
 /* ═══════════════════════════════════════════
+   LOADING SPINNER
+   ═══════════════════════════════════════════ */
+.loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--hover-gray, #e2e2e2);
+  border-top-color: var(--uber-black, #000);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ═══════════════════════════════════════════
    SELECTION
    ═══════════════════════════════════════════ */
 ::selection {

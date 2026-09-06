@@ -2,8 +2,9 @@
  * Formatting utilities — PKR currency, dates
  */
 
-export function formatPKR(amount: number): string {
-  return `Rs. ${amount.toLocaleString('en-PK', { maximumFractionDigits: 0 })}`;
+export function formatPKR(amount?: number | null): string {
+  const num = typeof amount === 'number' && !isNaN(amount) ? amount : (Number(amount) || 0);
+  return `Rs. ${num.toLocaleString('en-PK', { maximumFractionDigits: 0 })}`;
 }
 
 export function formatDate(dateString: string): string {

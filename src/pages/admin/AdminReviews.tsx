@@ -18,6 +18,16 @@ export default function AdminReviews() {
   };
   useEffect(() => { load(); }, []);
 
+  const handleToggleApprove = async (review: Review) => {
+    try {
+      await adminService.updateReview(review.id, { is_approved: !review.is_approved });
+      toast(review.is_approved ? 'Review unapproved' : 'Review approved');
+      load();
+    } catch {
+      toast('Failed to update review status', 'error');
+    }
+  };
+
   const handleToggleHide = async (review: Review) => {
     try { await adminService.updateReview(review.id, { is_hidden: !review.is_hidden }); toast(review.is_hidden ? 'Review shown' : 'Review hidden'); load(); }
     catch { toast('Failed', 'error'); }
@@ -50,6 +60,13 @@ export default function AdminReviews() {
                   <td>{formatDate(r.created_at)}</td>
                   <td>
                     <div style={{ display: 'flex', gap: '6px' }}>
+                      <Button
+                        variant={r.is_approved ? 'chip' : 'primary'}
+                        size="sm"
+                        onClick={() => handleToggleApprove(r)}
+                      >
+                        {r.is_approved ? 'Unapprove' : 'Approve'}
+                      </Button>
                       <Button variant="chip" size="sm" onClick={() => handleToggleHide(r)}>
                         {r.is_hidden ? 'Show' : 'Hide'}
                       </Button>

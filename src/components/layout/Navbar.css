@@ -61,13 +61,14 @@
   transition: background var(--transition-fast);
 }
 .nav-icon-btn:hover { background: var(--chip-gray); }
-.cart-btn { position: relative; }
+.cart-btn { position: relative; text-decoration: none; color: inherit; }
 .cart-badge {
   position: absolute; top: 4px; right: 4px;
   width: 16px; height: 16px; border-radius: var(--radius-circle);
   background: var(--uber-black); color: var(--pure-white);
   font-size: 10px; font-weight: 700;
   display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
 }
 
 .nav-login-btn {
